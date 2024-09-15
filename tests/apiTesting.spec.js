@@ -1,6 +1,6 @@
 import {test, expect} from '@playwright/test';
 import {faker} from '@faker-js/faker';
-import createUser from '../flows/userFlows.js';
+import {createUserFlow} from '../flows/userFlows.js';
 import {createUserBody, requiredFields, bodyBuilder} from "./body/createUserBody.js";
 import {createUserHelper} from '../helpers/usersHelper'
 
@@ -40,7 +40,7 @@ test('Create user', async ({request}) => {
 });
 
 test.only('Try to create already created user', async ({request}) => {
-    const alreadyUsedUser = await createUser(request);
+    const alreadyUsedUser = await createUserFlow(request);
     const alreadyUsedUserName = alreadyUsedUser.username;
     const requestBody = bodyBuilder();
     requestBody.userName = alreadyUsedUserName;

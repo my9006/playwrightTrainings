@@ -8,3 +8,18 @@ async function createUserHelper(request ,body) {
 }
 
 export{createUserHelper}
+
+async function generateTokenHelper(request, body) {
+    return await request.post('https://demoqa.com/Account/v1/GenerateToken', {
+        headers: {
+            'content-type': 'application/json'
+        },
+        data: body
+        
+    });
+
+
+}
+
+export{generateTokenHelper}
+
